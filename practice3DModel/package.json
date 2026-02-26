@@ -13,8 +13,10 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@use-gesture/react": "^10.3.1",
+    "katex": "^0.16.33",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-katex": "^3.1.0",
     "three": "^0.183.1"
   },
   "devDependencies": {

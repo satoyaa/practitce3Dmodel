@@ -7,7 +7,7 @@ import InteractiveVector from './InteractiveVector'
 const InteractiveVectorCanvas = ({endPoint, setEndPoint, origin}) => {
 
     return(
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '100%', height: '50vh' }}>
         hello
         {/* R3Fのキャンバス（ここが3Dの世界になります） */}
         <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>

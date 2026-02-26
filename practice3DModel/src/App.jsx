@@ -2,12 +2,22 @@ import { useState } from 'react'
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Grid} from '@react-three/drei';
 import * as THREE from 'three';
+import { InlineMath, BlockMath } from 'react-katex';
 
 import InteractiveVectorCanvas from './components/InteractiveVectorCanvas.jsx'
+import AnswerIdeal from './components/AnswerIdeal.jsx';
+import AnswerReal from './components/AnswerReal.jsx'
 
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+
+const literals = [`数や文字を長方形の形に並べたものを行列と呼びます。例えば`,
+  `\\begin{equation}\\begin{bmatrix} 1 & 0 & -1 \\\\ 3 & 0 & 2 \\end{bmatrix}\\end{equation}`,
+  `\\begin{equation}\\begin{bmatrix} 1 & 2 & 3 \\\\ 2 & a & b \\\\ 3 & b & a \\end{bmatrix}\\end{equation}`,
+  `は行列です。左上の行列は行（＝行列の横の並び）が2本、列（＝縦の並び）が3本からなるので、型行列 、また右上の行列は行が3本、列も3本なので<InlineMath math="3 \times 3" /> 型の行列 と言います。線形代数の前半では、このような行列の性質について調べていきます。今回の授業ノートでは行列の基本的な用語について、例を交えながら説明します。`,
+];
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -74,6 +84,10 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <h1>理想</h1>
+      <AnswerIdeal></AnswerIdeal>
+      <h1>現実</h1>
+      <AnswerReal literals={literals}></AnswerReal>
       <div className="card">
         <button onClick={() => handleButtonClick("addX")}>
           +X count is {count}
