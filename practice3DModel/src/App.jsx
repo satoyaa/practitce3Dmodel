@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { InlineMath, BlockMath } from 'react-katex';
 
 import InteractiveVectorCanvas from './components/InteractiveVectorCanvas.jsx'
+import InteractiveGraphCanvas from './components/InteractiveGraphCanvas.jsx';
 import AnswerIdeal from './components/AnswerIdeal.jsx';
 import AnswerReal from './components/AnswerReal.jsx'
 
@@ -15,7 +16,7 @@ import './App.css'
 const literals = [`数や文字を長方形の形に並べたものを行列と呼びます。例えば`,
   `\\begin{equation}\\begin{bmatrix} 1 & 0 & -1 \\\\ 3 & 0 & 2 \\end{bmatrix}\\end{equation}`,
   `\\begin{equation}\\begin{bmatrix} 1 & 2 & 3 \\\\ 2 & a & b \\\\ 3 & b & a \\end{bmatrix}\\end{equation}`,
-  `は行列です。左上の行列は行（＝行列の横の並び）が2本、列（＝縦の並び）が3本からなるので、型行列 、また右上の行列は行が3本、列も3本なので<InlineMath math="3 \times 3" /> 型の行列 と言います。線形代数の前半では、このような行列の性質について調べていきます。今回の授業ノートでは行列の基本的な用語について、例を交えながら説明します。`,
+  `は行列です。左上の行列は行（＝行列の横の並び）が2本、列（＝縦の並び）が3本からなるので、<InlineMath math="2 \times 3" /> 型行列  、また右上の行列は行が3本、列も3本なので<InlineMath math="3 \times 3" /> 型の行列 と言います。線形代数の前半では、このような行列の性質について調べていきます。今回の授業ノートでは行列の基本的な用語について、例を交えながら説明します。`,
 ];
 
 
@@ -121,6 +122,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <InteractiveVectorCanvas endPoint={endPoint} setEndPoint={setEndPoint} origin={origin}/>
+      <InteractiveGraphCanvas></InteractiveGraphCanvas>
     </>
   )
 }

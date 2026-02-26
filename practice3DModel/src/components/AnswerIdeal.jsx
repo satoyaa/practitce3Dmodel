@@ -9,18 +9,20 @@ const AnswerIdeal = ({}) => {
     return (
         <div style={{ padding: '20px', lineHeight: '1.8', fontFamily: 'serif' }}>
         <p>
-            数や文字を長方形の形に並べたものを行列と呼びます。例えば
+            数や文字を長方形の形に並べたものを <strong style={{ color: '#ff6600' }}>行列</strong> と呼びます。例えば
         </p>
 
         {/* 行列を並べて表示 */}
-        <BlockMath math={matrix1} />
-        <BlockMath math={matrix2} />
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', margin: '20px 0' }}>
+            <BlockMath math={matrix1} />
+            <BlockMath math={matrix2} />
+        </div>
 
         <p>
-            は行列です。左上の行列は行（＝行列の横の並び）が2本、
-            列（＝縦の並び）が3本からなるので、
-            <InlineMath math="2 \times 3" /> 型行列 、
-            また右上の行列は行が3本、列も3本なので <InlineMath math="3 \times 3" /> 型の行列 と言います。
+            は行列です。左上の行列は <strong style={{ color: '#ff6600' }}>行</strong>（＝行列の横の並び）が2本、
+            <strong style={{ color: '#ff6600' }}>列</strong>（＝縦の並び）が3本からなるので、
+            <strong style={{ color: '#ff6600' }}><InlineMath math="2 \times 3" /> 型行列</strong> 、
+            また右上の行列は行が3本、列も3本なので <strong style={{ color: '#ff6600' }}><InlineMath math="3 \times 3" /> 型の行列</strong> と言います。
         </p>
 
         <p>
