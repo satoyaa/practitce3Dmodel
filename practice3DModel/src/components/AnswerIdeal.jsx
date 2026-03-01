@@ -12,11 +12,8 @@ const AnswerIdeal = ({}) => {
             数や文字を長方形の形に並べたものを <strong style={{ color: '#ff6600' }}>行列</strong> と呼びます。例えば
         </p>
 
-        {/* 行列を並べて表示 */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', margin: '20px 0' }}>
-            <BlockMath math={matrix1} />
-            <BlockMath math={matrix2} />
-        </div>
+        <BlockMath math={matrix1} />
+        <BlockMath math={matrix2} />
 
         <p>
             は行列です。左上の行列は <strong style={{ color: '#ff6600' }}>行</strong>（＝行列の横の並び）が2本、

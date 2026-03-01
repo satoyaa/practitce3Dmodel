@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
-import { useFrame } from '@react-three/fiber'; // 追加
+import { useFrame } from '@react-three/fiber';
 import { useDrag } from '@use-gesture/react';
 import * as THREE from 'three';
 
 const InteractiveVector = ({ endPoint, setEndPoint, origin }) => {
   const arrowRef = useRef();
-  const meshRef = useRef(); // 追加: 赤い球体（ハンドル）を直接操作するためのRef
+  const meshRef = useRef(); 
 
   const bind = useDrag(
     ({ offset: [x, y] }) => {
@@ -16,8 +16,6 @@ const InteractiveVector = ({ endPoint, setEndPoint, origin }) => {
     }
   );
 
-  // --- 変更点: useEffectの代わりにuseFrameを使用 ---
-  // 毎フレーム（約60回/秒）実行され、アニメーションを担当します
   useFrame(() => {
     // まだオブジェクトがレンダリングされていない場合はスキップ
     if (!meshRef.current || !arrowRef.current) return;
@@ -33,8 +31,6 @@ const InteractiveVector = ({ endPoint, setEndPoint, origin }) => {
     // 3. 現在位置に基づいて、矢印の向きと長さを計算
     const direction = currentPos.clone().sub(origin).normalize();
     const length = currentPos.distanceTo(origin);
-    
-    // 4. 矢印を更新して球体に追従させる
     if (length > 0) {
       arrowRef.current.setDirection(direction);
       arrowRef.current.setLength(length, 0.5, 0.2);
@@ -54,9 +50,6 @@ const InteractiveVector = ({ endPoint, setEndPoint, origin }) => {
           0.2
         ]} 
       />
-
-      {/* 変更点: position={endPoint} を削除し、ref={meshRef} を追加 */}
-      {/* 座標の管理は useFrame 内の lerp に完全に任せます */}
       <mesh ref={meshRef} {...bind()}>
         <sphereGeometry args={[0.2, 16, 16]} />
         <meshStandardMaterial color="red" transparent opacity={0.8} />
